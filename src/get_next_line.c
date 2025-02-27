@@ -13,9 +13,9 @@
 #include "../libft/libft.h"
 #include "so_long.h"
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 5
-# endif
+#ifndef BUFFER_SIZE
+# define BUFFER_SIZE 5
+#endif
 
 char	*extract_line(char *remainder)
 {
