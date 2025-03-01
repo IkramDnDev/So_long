@@ -6,7 +6,7 @@
 /*   By: idahhan <idahhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:40:55 by idahhan           #+#    #+#             */
-/*   Updated: 2025/03/01 10:01:24 by idahhan          ###   ########.fr       */
+/*   Updated: 2025/03/01 12:46:57 by idahhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ void	f(void)
 void	map_initializer(t_map *map, char **av)
 {
 	map->filename = av[1];
+	map->c = 0;
+	map->e = 0;
+	map->p = 0;
 }
 
 int	main(int ac, char **av)
@@ -38,7 +41,6 @@ int	main(int ac, char **av)
 		// mlx = mlx_init();
 		// mlx_win = mlx_new_window(mlx, 1500, 1000, "so_long");
 		// mlx_loop(mlx);
-		// free(&map);
 	}
 	else
 		write(2, "Error\nUsage : ./so_long mapfile\n", 32);

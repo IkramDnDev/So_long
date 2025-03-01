@@ -6,7 +6,7 @@
 /*   By: idahhan <idahhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 16:37:26 by idahhan           #+#    #+#             */
-/*   Updated: 2025/03/01 10:00:38 by idahhan          ###   ########.fr       */
+/*   Updated: 2025/03/01 12:19:32 by idahhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,16 @@ static void	check_file(char *file)
 
 static int	is_rectangle(t_map *map)
 {
-	int	i;
+	int		i;
+	size_t	width;
 
 	if (!map->grid || !map->grid[0])
 		return (0);
-	map->width = ft_strlen(map->grid[0]);
+	width = ft_strlen(map->grid[0]);
 	i = 0;
 	while (map->grid[i])
 	{
-		if (ft_strlen(map->grid[i]) != map->width)
+		if (ft_strlen(map->grid[i]) != width)
 			return (0);
 		i++;
 	}
@@ -47,22 +48,22 @@ static int	check_walls(t_map *map)
 {
 	size_t	i;
 	size_t	j;
+	size_t	width;
+	size_t	height;
 
-	map->height = 0;
-	while (map->grid[map->height])
-		map->height++;
-	map->width = ft_strlen(map->grid[0]);
+	height = get_map_height(map);
+	width = get_map_width(map);
 	i = 0;
-	while (i < map->width)
+	while (i < width)
 	{
-		if (map->grid[0][i] != '1' || map->grid[map->height - 1][i] != '1')
+		if (map->grid[0][i] != '1' || map->grid[height - 1][i] != '1')
 			return (0);
 		i++;
 	}
 	j = 0;
-	while (j < map->height)
+	while (j < height)
 	{
-		if (map->grid[j][0] != '1' || map->grid[j][map->width - 1] != '1')
+		if (map->grid[j][0] != '1' || map->grid[j][width - 1] != '1')
 			return (0);
 		j++;
 	}
@@ -95,28 +96,22 @@ static int	check_elements(t_map *map)
 {
 	int	i;
 	int	j;
-	int	p;
-	int	e;
-	int	c;
 
 	i = -1;
-	p = 0;
-	e = 0;
-	c = 0;
 	while (map->grid[++i])
 	{
 		j = -1;
 		while (map->grid[i][++j])
 		{
 			if (map->grid[i][j] == 'P')
-				p++;
+				map->p++;
 			else if (map->grid[i][j] == 'E')
-				e++;
+				map->e++;
 			else if (map->grid[i][j] == 'C')
-				c++;
+				map->c++;
 		}
 	}
-	return (p == 1 && e == 1 && c > 0);
+	return (map->p == 1 && map->e == 1 && map->c > 0);
 }
 
 void	check_map(t_map *map)
@@ -131,6 +126,7 @@ void	check_map(t_map *map)
 		error_element(map);
 	if (!check_caracters(map))
 		error_caracter(map);
+	check_path_access(map);
 	write(1, "map is valid\n", 13);
 	ft_free_split(map->copy);
 	ft_free_split(map->grid);

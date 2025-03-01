@@ -6,7 +6,7 @@
 #    By: idahhan <idahhan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/25 14:48:48 by idahhan           #+#    #+#              #
-#    Updated: 2025/02/27 17:40:06 by idahhan          ###   ########.fr        #
+#    Updated: 2025/03/01 12:21:03 by idahhan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ NAME = so_long
 CC = cc
 CFLAGS = -Wall -Wextra -Werror 
 
-SRCS = src/so_long.c src/parcing.c src/get_next_line.c src/read_map.c src/errors.c src/free.c
+SRCS = src/so_long.c src/parcing.c src/get_next_line.c src/read_map.c src/errors.c\
+		src/free.c src/utils.c src/check_path_access.c
 OBJS = $(SRCS:%.c=%.o)
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a

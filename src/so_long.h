@@ -6,7 +6,7 @@
 /*   By: idahhan <idahhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:41:10 by idahhan           #+#    #+#             */
-/*   Updated: 2025/03/01 09:57:32 by idahhan          ###   ########.fr       */
+/*   Updated: 2025/03/01 12:20:16 by idahhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,11 @@ typedef struct s_map
 	char	**copy;
 	char	*file;
 	char	*filename;
-	size_t	width;
-	size_t	height;
+	int		width;
+	int		height;
+	int		e;
+	int		c;
+	int		p;
 	int		p_x;
 	int		p_y;
 	int		c_check;
@@ -35,6 +38,10 @@ typedef struct s_map
 char		*get_next_line(int fd);
 void		read_map(t_map *map);
 void		check_map(t_map *map);
+int			get_map_width(t_map *map);
+int			get_map_height(t_map *map);
+void		get_pos_player(t_map *map);
+void		check_path_access(t_map *map);
 
 // free
 void		ft_free_split(char **split);
