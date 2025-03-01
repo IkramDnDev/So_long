@@ -6,7 +6,7 @@
 /*   By: idahhan <idahhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:40:55 by idahhan           #+#    #+#             */
-/*   Updated: 2025/02/27 17:44:49 by idahhan          ###   ########.fr       */
+/*   Updated: 2025/03/01 10:01:24 by idahhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 void	f(void)
 {
-	system("lsof -c so_long");
+	system("leaks so_long");
 }
 
 void	map_initializer(t_map *map, char **av)

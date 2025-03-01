@@ -6,7 +6,7 @@
 /*   By: idahhan <idahhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 16:37:26 by idahhan           #+#    #+#             */
-/*   Updated: 2025/02/27 17:55:09 by idahhan          ###   ########.fr       */
+/*   Updated: 2025/03/01 10:00:38 by idahhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,14 +99,14 @@ static int	check_elements(t_map *map)
 	int	e;
 	int	c;
 
-	i = 0;
+	i = -1;
 	p = 0;
 	e = 0;
 	c = 0;
-	while (map->grid[i++])
+	while (map->grid[++i])
 	{
-		j = 0;
-		while (map->grid[i][j++])
+		j = -1;
+		while (map->grid[i][++j])
 		{
 			if (map->grid[i][j] == 'P')
 				p++;

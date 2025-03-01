@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_array.c                                        :+:      :+:    :+:   */
+/*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: idahhan <idahhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 12:09:57 by idahhan           #+#    #+#             */
-/*   Updated: 2025/02/27 17:17:22 by idahhan          ###   ########.fr       */
+/*   Updated: 2025/03/01 09:57:36 by idahhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ void	read_map(t_map *map)
 	char	*tmp;
 	char	*line;
 
+	map->p_y = 0;
+	map->file = NULL;
 	fd = open(map->filename, O_RDONLY);
 	if (fd < 0)
 		error_file();
-	map->p_y = 0;
-	map->file = NULL;
 	line = get_next_line(fd);
 	while (line)
 	{
