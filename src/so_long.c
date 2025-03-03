@@ -6,7 +6,7 @@
 /*   By: idahhan <idahhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:40:55 by idahhan           #+#    #+#             */
-/*   Updated: 2025/03/01 12:46:57 by idahhan          ###   ########.fr       */
+/*   Updated: 2025/03/03 16:21:14 by idahhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ void	map_initializer(t_map *map, char **av)
 	map->c = 0;
 	map->e = 0;
 	map->p = 0;
+	map->nb_moves = 0;
+	map->p_x = 0;
+	map->p_y = 0;
+	map->exit = 0;
 }
 
 int	main(int ac, char **av)
@@ -36,11 +40,13 @@ int	main(int ac, char **av)
 	{
 		map_initializer(&map, av);
 		check_map(&map);
-		// void *mlx;
-		// void *mlx_win;
-		// mlx = mlx_init();
-		// mlx_win = mlx_new_window(mlx, 1500, 1000, "so_long");
-		// mlx_loop(mlx);
+		map.mlx = mlx_init();
+		map.wind = mlx_new_window(map.mlx, map.width * IMG_PXL, map.height
+				* IMG_PXL, WND_NAME);
+		file_to_img(&map);
+		print_map(&map);
+		mlx_hook(map.wind, 17, 0, close_map, &map);
+		mlx_loop(map.mlx);
 	}
 	else
 		write(2, "Error\nUsage : ./so_long mapfile\n", 32);

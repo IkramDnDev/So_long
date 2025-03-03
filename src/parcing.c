@@ -6,7 +6,7 @@
 /*   By: idahhan <idahhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 16:37:26 by idahhan           #+#    #+#             */
-/*   Updated: 2025/03/01 12:19:32 by idahhan          ###   ########.fr       */
+/*   Updated: 2025/03/03 12:04:49 by idahhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,5 +129,4 @@ void	check_map(t_map *map)
 	check_path_access(map);
 	write(1, "map is valid\n", 13);
 	ft_free_split(map->copy);
-	ft_free_split(map->grid);
 }

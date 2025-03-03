@@ -6,17 +6,19 @@
 #    By: idahhan <idahhan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/25 14:48:48 by idahhan           #+#    #+#              #
-#    Updated: 2025/03/01 12:21:03 by idahhan          ###   ########.fr        #
+#    Updated: 2025/03/03 15:36:36 by idahhan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror
+MLX_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
+INCLUDES = -I/opt/X11/include -Imlx
 
-SRCS = src/so_long.c src/parcing.c src/get_next_line.c src/read_map.c src/errors.c\
-		src/free.c src/utils.c src/check_path_access.c
+SRCS = src/so_long.c src/parcing.c src/get_next_line.c src/read_map.c src/errors.c src/close_map.c\
+		src/free.c src/utils.c src/check_path_access.c src/file_to_img.c src/print_map.c src/movements.c
 OBJS = $(SRCS:%.c=%.o)
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
@@ -26,10 +28,10 @@ HEADER = src/so_long.h
 all : $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MLX_FLAGS) -o $(NAME)
 
 $(OBJS): %.o: %.c $(HEADER)
-	$(CC) $(CFLAGS) -Imlx -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBFT): $(LIBFT_DIR)/*.c
 	@make -C $(LIBFT_DIR)
