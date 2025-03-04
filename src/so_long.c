@@ -6,7 +6,7 @@
 /*   By: idahhan <idahhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:40:55 by idahhan           #+#    #+#             */
-/*   Updated: 2025/03/03 16:21:14 by idahhan          ###   ########.fr       */
+/*   Updated: 2025/03/04 15:46:30 by idahhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	map_initializer(t_map *map, char **av)
 	map->e = 0;
 	map->p = 0;
 	map->nb_moves = 0;
-	map->p_x = 0;
-	map->p_y = 0;
+	map->player.x = 0;
+	map->player.y = 0;
 	map->exit = 0;
 }
 
@@ -46,8 +46,9 @@ int	main(int ac, char **av)
 		file_to_img(&map);
 		print_map(&map);
 		mlx_hook(map.wind, 17, 0, close_map, &map);
+		mlx_key_hook(map.wind, key_press, &map);
 		mlx_loop(map.mlx);
 	}
-	else
-		write(2, "Error\nUsage : ./so_long mapfile\n", 32);
+	write(2, "Error\nUsage : ./so_long mapfile\n", 32);
+	exit(EXIT_FAILURE);
 }

@@ -6,10 +6,11 @@
 /*   By: idahhan <idahhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 10:58:49 by idahhan           #+#    #+#             */
-/*   Updated: 2025/03/03 12:43:09 by idahhan          ###   ########.fr       */
+/*   Updated: 2025/03/04 15:43:02 by idahhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../libft/libft.h"
 #include "../mlx/mlx.h"
 #include "so_long.h"
 
@@ -47,4 +48,15 @@ void	print_map(t_map *map)
 		}
 		j++;
 	}
+}
+
+void	print_movements(t_map *map)
+{
+	char	*move;
+
+	move = ft_itoa(map->nb_moves);
+	write(1, "move number : ", 14);
+	write(1, move, ft_strlen(move));
+	write(1, "\n", 1);
+	free(move);
 }

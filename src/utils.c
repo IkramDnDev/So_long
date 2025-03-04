@@ -6,7 +6,7 @@
 /*   By: idahhan <idahhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 11:02:04 by idahhan           #+#    #+#             */
-/*   Updated: 2025/03/01 12:46:19 by idahhan          ###   ########.fr       */
+/*   Updated: 2025/03/04 12:44:46 by idahhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,19 @@ int	get_map_width(t_map *map)
 
 void	get_pos_player(t_map *map)
 {
-	map->p_x = 0;
-	map->p_y = 0;
-	while (map->p_y < map->height)
+	map->player.x = 0;
+	map->player.y = 0;
+	while (map->player.y < map->height)
 	{
-		while (map->p_x < map->width)
+		while (map->player.x < map->width)
 		{
-			if (map->grid[map->p_y][map->p_x] == 'P')
+			if (map->grid[map->player.y][map->player.x] == 'P')
 				break ;
-			map->p_x++;
+			map->player.x++;
 		}
-		if (map->grid[map->p_y][map->p_x] == 'P')
+		if (map->grid[map->player.y][map->player.x] == 'P')
 			break ;
-		map->p_x = 0;
-		map->p_y++;
+		map->player.x = 0;
+		map->player.y++;
 	}
 }

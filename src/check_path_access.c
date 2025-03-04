@@ -6,7 +6,7 @@
 /*   By: idahhan <idahhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 10:05:08 by idahhan           #+#    #+#             */
-/*   Updated: 2025/03/01 12:46:29 by idahhan          ###   ########.fr       */
+/*   Updated: 2025/03/04 12:46:37 by idahhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	check_path_access(t_map *map)
 	map->c_check = map->c;
 	map->e_check = map->e;
 	get_pos_player(map);
-	move_on_paths(map->p_x, map->p_y, map);
+	move_on_paths(map->player.x, map->player.y, map);
 	if (map->c_check != 0 || map->e_check >= map->e)
 	{
 		write(2, "Error\nNo valid path\n", 20);

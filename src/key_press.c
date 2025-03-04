@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close_map.c                                        :+:      :+:    :+:   */
+/*   key_press.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: idahhan <idahhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 15:22:30 by idahhan           #+#    #+#             */
-/*   Updated: 2025/03/04 15:41:41 by idahhan          ###   ########.fr       */
+/*   Created: 2025/03/04 10:45:05 by idahhan           #+#    #+#             */
+/*   Updated: 2025/03/04 15:17:07 by idahhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mlx/mlx.h"
 #include "so_long.h"
 
-int	close_map(t_map *map)
+int	key_press(int touch, t_map *map)
 {
-	mlx_destroy_window(map->mlx, map->wind);
-	ft_free_split(map->grid);
-	exit(EXIT_SUCCESS);
+	get_pos_player(map);
+	if (touch == ESC)
+		return (close_map(map));
+	else if (map->exit == 1)
+		return (0);
+	else if (touch == RIGHT)
+		right_move(map);
+	else if (touch == DOWN)
+		down_move(map);
+	else if (touch == UP)
+		move_up(map);
+	else if (touch == LEFT)
+		left_move(map);
 	return (0);
-}
-
-void	win_game(t_map *map)
-{
-	map->exit = 1;
-	map->nb_moves++;
-	mlx_clear_window(map->mlx, map->wind);
-	write(1, "you win\n", 8);
 }
