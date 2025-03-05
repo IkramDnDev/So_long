@@ -6,7 +6,7 @@
 /*   By: idahhan <idahhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 10:58:49 by idahhan           #+#    #+#             */
-/*   Updated: 2025/03/04 15:43:02 by idahhan          ###   ########.fr       */
+/*   Updated: 2025/03/05 14:12:52 by idahhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ static void	type_elem(t_map *map, int x, int y)
 		mlx_put_image_to_window(map->mlx, map->wind, map->img.collectible, x,
 			y);
 	else if (type == 'P')
-		mlx_put_image_to_window(map->mlx, map->wind, map->img.player, x, y);
+		mlx_put_image_to_window(map->mlx, map->wind, map->img.player_right, x,
+			y);
 	else if (type == 'E')
 		mlx_put_image_to_window(map->mlx, map->wind, map->img.exit, x, y);
 	else if (type == '1')

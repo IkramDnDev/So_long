@@ -6,7 +6,7 @@
 /*   By: idahhan <idahhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:41:10 by idahhan           #+#    #+#             */
-/*   Updated: 2025/03/04 15:38:11 by idahhan          ###   ########.fr       */
+/*   Updated: 2025/03/05 14:45:11 by idahhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,13 @@
 # define RIGHT 2
 # define LEFT 0
 # define ESC 53
-# define WND_NAME "so_long"
+# define WIND_NAME "so_long"
 
 typedef struct s_player
 {
 	int			x;
 	int			y;
+	int			direction;
 }				t_player;
 
 typedef struct s_img
@@ -38,7 +39,8 @@ typedef struct s_img
 	void		*wall;
 	void		*collectible;
 	void		*exit;
-	void		*player;
+	void		*player_right;
+	void		*player_left;
 }				t_img;
 
 typedef struct s_map
@@ -77,6 +79,8 @@ void			file_to_img(t_map *map);
 void			print_map(t_map *map);
 void			win_game(t_map *map);
 void			print_movements(t_map *map);
+void			check_file(char *file);
+void			change_coordinate(t_map *map, int x, int y, int direction);
 
 // movements
 void			right_move(t_map *map);

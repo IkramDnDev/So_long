@@ -6,12 +6,34 @@
 /*   By: idahhan <idahhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 12:09:57 by idahhan           #+#    #+#             */
-/*   Updated: 2025/03/04 12:52:34 by idahhan          ###   ########.fr       */
+/*   Updated: 2025/03/05 14:05:25 by idahhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include "so_long.h"
+
+void	check_file(char *file)
+{
+	size_t	len;
+
+	len = ft_strlen(file);
+	if (file[len - 1] != 'r' || file[len - 2] != 'e' || file[len - 3] != 'b'
+		|| file[len - 4] != '.')
+	{
+		write(2, "Error\nfile not valid\n", 21);
+		exit(EXIT_FAILURE);
+	}
+}
+
+static void	help_funct(t_map *map)
+{
+	map->grid = ft_split(map->file, '\n');
+	map->copy = ft_split(map->file, '\n');
+	if (!map->grid || !map->copy)
+		ft_free_exit(map);
+	free(map->file);
+}
 
 void	read_map(t_map *map)
 {
@@ -37,9 +59,5 @@ void	read_map(t_map *map)
 		line = get_next_line(fd);
 	}
 	close(fd);
-	map->grid = ft_split(map->file, '\n');
-	map->copy = ft_split(map->file, '\n');
-	if (!map->grid || !map->copy)
-		ft_free_exit(map);
-	free(map->file);
+	help_funct(map);
 }

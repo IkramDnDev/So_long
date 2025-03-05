@@ -6,25 +6,12 @@
 /*   By: idahhan <idahhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 16:37:26 by idahhan           #+#    #+#             */
-/*   Updated: 2025/03/03 12:04:49 by idahhan          ###   ########.fr       */
+/*   Updated: 2025/03/05 14:00:24 by idahhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include "so_long.h"
-
-static void	check_file(char *file)
-{
-	size_t	len;
-
-	len = ft_strlen(file);
-	if (file[len - 1] != 'r' || file[len - 2] != 'e' || file[len - 3] != 'b'
-		|| file[len - 4] != '.')
-	{
-		write(2, "Error\nFilename should be a BER extension file\n", 46);
-		exit(EXIT_FAILURE);
-	}
-}
 
 static int	is_rectangle(t_map *map)
 {
@@ -127,6 +114,5 @@ void	check_map(t_map *map)
 	if (!check_caracters(map))
 		error_caracter(map);
 	check_path_access(map);
-	write(1, "map is valid\n", 13);
 	ft_free_split(map->copy);
 }
