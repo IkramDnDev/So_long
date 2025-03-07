@@ -6,7 +6,7 @@
 /*   By: idahhan <idahhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 16:37:26 by idahhan           #+#    #+#             */
-/*   Updated: 2025/03/05 14:00:24 by idahhan          ###   ########.fr       */
+/*   Updated: 2025/03/07 12:00:37 by idahhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,9 @@ static int	check_elements(t_map *map)
 				map->c++;
 		}
 	}
-	return (map->p == 1 && map->e == 1 && map->c > 0);
+	if (map->p != 1 || map->e != 1 || map->c <= 0)
+		return (0);
+	return (1);
 }
 
 void	check_map(t_map *map)

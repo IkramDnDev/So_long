@@ -6,7 +6,7 @@
 /*   By: idahhan <idahhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 10:45:05 by idahhan           #+#    #+#             */
-/*   Updated: 2025/03/05 14:56:30 by idahhan          ###   ########.fr       */
+/*   Updated: 2025/03/07 10:08:22 by idahhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ int	key_press(int touch, t_map *map)
 		return (close_map(map));
 	else if (map->exit == 1)
 		return (0);
-	else if (touch == RIGHT)
+	else if (touch == RIGHT || touch == 124)
 		right_move(map);
-	else if (touch == DOWN)
+	else if (touch == DOWN || touch == 125)
 		down_move(map);
-	else if (touch == UP)
+	else if (touch == UP || touch == 126)
 		move_up(map);
-	else if (touch == LEFT)
+	else if (touch == LEFT || touch == 123)
 		left_move(map);
 	return (0);
 }

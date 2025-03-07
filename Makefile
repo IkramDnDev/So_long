@@ -6,7 +6,7 @@
 #    By: idahhan <idahhan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/25 14:48:48 by idahhan           #+#    #+#              #
-#    Updated: 2025/03/05 13:06:10 by idahhan          ###   ########.fr        #
+#    Updated: 2025/03/07 11:39:46 by idahhan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ OBJS = $(SRCS:%.c=%.o)
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-HEADER = src/so_long.h
+HEADER = src/so_long.h libft/libft.h
 
 all : $(NAME)
 

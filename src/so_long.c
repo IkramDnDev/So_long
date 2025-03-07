@@ -6,18 +6,13 @@
 /*   By: idahhan <idahhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:40:55 by idahhan           #+#    #+#             */
-/*   Updated: 2025/03/05 14:42:05 by idahhan          ###   ########.fr       */
+/*   Updated: 2025/03/07 16:17:39 by idahhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include "../mlx/mlx.h"
 #include "so_long.h"
-
-void	f(void)
-{
-	system("leaks so_long");
-}
 
 void	map_initializer(t_map *map, char **av)
 {
@@ -35,7 +30,6 @@ int	main(int ac, char **av)
 {
 	t_map	map;
 
-	// atexit(f);
 	if (ac == 2)
 	{
 		map_initializer(&map, av);

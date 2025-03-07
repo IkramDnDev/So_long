@@ -6,7 +6,7 @@
 /*   By: idahhan <idahhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:06:24 by idahhan           #+#    #+#             */
-/*   Updated: 2025/03/05 13:06:27 by idahhan          ###   ########.fr       */
+/*   Updated: 2025/03/07 12:01:08 by idahhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	error_file(void)
 {
-	write(2, "Error opening file\n", 19);
+	write(2, "Error\nError opening file\n", 25);
 	exit(EXIT_FAILURE);
 }
 
