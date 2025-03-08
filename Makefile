@@ -6,7 +6,7 @@
 #    By: idahhan <idahhan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/25 14:48:48 by idahhan           #+#    #+#              #
-#    Updated: 2025/03/07 11:39:46 by idahhan          ###   ########.fr        #
+#    Updated: 2025/03/08 12:11:58 by idahhan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,6 @@ NAME = so_long
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 MLX_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
-INCLUDES = -I/opt/X11/include -Imlx
 
 SRCS = src/so_long.c src/parcing.c src/get_next_line.c src/read_map.c src/errors_msgs.c src/close_map.c src/key_press.c\
 		src/free.c src/utils.c src/check_path_access.c src/file_to_img.c src/print_map.c src/movements.c

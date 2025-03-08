@@ -6,7 +6,7 @@
 /*   By: idahhan <idahhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:41:10 by idahhan           #+#    #+#             */
-/*   Updated: 2025/03/07 11:40:37 by idahhan          ###   ########.fr       */
+/*   Updated: 2025/03/08 12:49:43 by idahhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define SO_LONG_H
 
 # include <fcntl.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -24,7 +23,7 @@
 # define RIGHT 2
 # define LEFT 0
 # define ESC 53
-# define WIND_NAME "so_long"
+# define TITLE "so_long"
 
 typedef struct s_player
 {
@@ -81,6 +80,7 @@ void			win_game(t_map *map);
 void			print_movements(t_map *map);
 void			check_file(char *file);
 void			change_coordinate(t_map *map, int x, int y, int direction);
+void			check_direction(t_map *map, int x, int y);
 
 // movements
 void			right_move(t_map *map);

@@ -6,7 +6,7 @@
 /*   By: idahhan <idahhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 10:45:05 by idahhan           #+#    #+#             */
-/*   Updated: 2025/03/07 10:08:22 by idahhan          ###   ########.fr       */
+/*   Updated: 2025/03/08 12:50:05 by idahhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,12 @@ void	change_coordinate(t_map *map, int x, int y, int direction)
 	if (direction == LEFT)
 		x -= 1;
 	if (map->grid[y][x] == 'E' && map->c == 0)
-		return (win_game(map));
+	{
+		map->nb_moves++;
+		print_movements(map);
+		write(1, "you win\n", 8);
+		close_map(map);
+	}
 	if (map->grid[y][x] == 'C')
 	{
 		map->grid[y][x] = '0';
