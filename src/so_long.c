@@ -6,7 +6,7 @@
 /*   By: idahhan <idahhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:40:55 by idahhan           #+#    #+#             */
-/*   Updated: 2025/03/08 13:06:30 by idahhan          ###   ########.fr       */
+/*   Updated: 2025/03/09 09:25:20 by idahhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,12 @@ int	main(int ac, char **av)
 		map_initializer(&map, av);
 		check_map(&map);
 		map.mlx = mlx_init();
+		if (!map.mlx)
+			exit(1);
 		map.wind = mlx_new_window(map.mlx, map.width * IMG_PXL, map.height
 				* IMG_PXL, TITLE);
+		if (!map.wind)
+			exit(1);
 		file_to_img(&map);
 		print_map(&map);
 		mlx_hook(map.wind, 17, 0, close_map, &map);

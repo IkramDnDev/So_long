@@ -6,7 +6,7 @@
 /*   By: idahhan <idahhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 10:58:49 by idahhan           #+#    #+#             */
-/*   Updated: 2025/03/08 08:59:58 by idahhan          ###   ########.fr       */
+/*   Updated: 2025/03/09 10:19:05 by idahhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ void	print_movements(t_map *map)
 	char	*move;
 
 	move = ft_itoa(map->nb_moves);
+	if (!move)
+		exit(1);
 	write(1, "move number : ", 14);
 	write(1, move, ft_strlen(move));
 	write(1, "\n", 1);

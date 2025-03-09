@@ -6,7 +6,7 @@
 /*   By: idahhan <idahhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 10:36:35 by idahhan           #+#    #+#             */
-/*   Updated: 2025/03/05 14:13:23 by idahhan          ###   ########.fr       */
+/*   Updated: 2025/03/09 09:24:31 by idahhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,10 @@ void	file_to_img(t_map *map)
 			&px_img);
 	map->img.collectible = mlx_xpm_file_to_image(map->mlx,
 			"imgs/collectible.xpm", &px_img, &px_img);
+	if (!map->img.wall || !map->img.empty || !map->img.player_right
+		|| !map->img.player_left || !map->img.exit || !map->img.collectible)
+	{
+		write(2, "Error\nImage is not vaid\n", 24);
+		exit(EXIT_FAILURE);
+	}
 }

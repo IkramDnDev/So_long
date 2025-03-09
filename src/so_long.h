@@ -6,7 +6,7 @@
 /*   By: idahhan <idahhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:41:10 by idahhan           #+#    #+#             */
-/*   Updated: 2025/03/08 12:49:43 by idahhan          ###   ########.fr       */
+/*   Updated: 2025/03/09 10:17:15 by idahhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ void			get_pos_player(t_map *map);
 void			check_path_access(t_map *map);
 void			file_to_img(t_map *map);
 void			print_map(t_map *map);
-void			win_game(t_map *map);
 void			print_movements(t_map *map);
 void			check_file(char *file);
 void			change_coordinate(t_map *map, int x, int y, int direction);
