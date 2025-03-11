@@ -6,7 +6,7 @@
 /*   By: idahhan <idahhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:41:10 by idahhan           #+#    #+#             */
-/*   Updated: 2025/03/09 10:17:15 by idahhan          ###   ########.fr       */
+/*   Updated: 2025/03/10 08:57:52 by idahhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ void			print_map(t_map *map);
 void			print_movements(t_map *map);
 void			check_file(char *file);
 void			change_coordinate(t_map *map, int x, int y, int direction);
-void			check_direction(t_map *map, int x, int y);
 
 // movements
 void			right_move(t_map *map);

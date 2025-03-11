@@ -6,14 +6,14 @@
 /*   By: idahhan <idahhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 11:10:10 by idahhan           #+#    #+#             */
-/*   Updated: 2025/03/08 09:16:44 by idahhan          ###   ########.fr       */
+/*   Updated: 2025/03/10 08:57:45 by idahhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mlx/mlx.h"
 #include "so_long.h"
 
-void	check_direction(t_map *map, int x, int y)
+static void	check_direction(t_map *map, int x, int y)
 {
 	if (map->player.direction == 0)
 		mlx_put_image_to_window(map->mlx, map->wind, map->img.player_right, x

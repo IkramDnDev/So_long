@@ -6,7 +6,7 @@
 /*   By: idahhan <idahhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 10:36:35 by idahhan           #+#    #+#             */
-/*   Updated: 2025/03/09 09:24:31 by idahhan          ###   ########.fr       */
+/*   Updated: 2025/03/10 08:39:20 by idahhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ void	file_to_img(t_map *map)
 	if (!map->img.wall || !map->img.empty || !map->img.player_right
 		|| !map->img.player_left || !map->img.exit || !map->img.collectible)
 	{
-		write(2, "Error\nImage is not vaid\n", 24);
+		write(2, "Error\nImage is not valid\n", 25);
+		mlx_destroy_window(map->mlx, map->wind);
 		exit(EXIT_FAILURE);
 	}
 }
